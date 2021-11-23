@@ -25,8 +25,8 @@ void isExists(){
     scanf("%d",&i);
     scanf("%d",&j);
     if(matrix[i][j]!=0){
-      printf("TRUE/n");  
-    }else{ printf("False/n");}
+      printf("TRUE");  
+    }else{ printf("False");}
 }
 
 
@@ -60,5 +60,5 @@ void floydWarshall(){
       }
     }
   }route = Route(newMatrix);
-   printf("%d/n" ,route);
+   printf("%d" ,route);
 }
