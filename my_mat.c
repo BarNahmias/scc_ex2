@@ -10,7 +10,7 @@ int  matrix [N][N];
 void newMatrix(){
 for(int i=0;i<N;i++) {
     for(int j=0;j<N;j++){
-       scanf("%d",&matrix[i][j]) ;
+       scanf("%d",&matrix[i][j]);
        }
    }
 }
@@ -25,7 +25,7 @@ void isExists(){
     scanf("%d",&i);
     scanf("%d",&j);
     if(matrix[i][j]!=0){
-      printf("TRUE\n");  
+      printf("True\n");  
     }else{ printf("False\n");}
 }
 
