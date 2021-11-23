@@ -3,9 +3,11 @@
 #define N 10
 
 
-int  matrix [N][N];
+
 
 int main(){
+
+
 char dig;
 
 while( dig!='D'){
