@@ -35,10 +35,12 @@ void isExists(){
 int Route(){
     int i;
     int j;
+    int ans;
     scanf("%d",&i);
     scanf("%d",&j);
     if(matrix[i][j]!=0){
-     return matrix[i][j];
+     ans=matrix[i][j] -1;
+     return ans;
     }
     return -1;
     }
