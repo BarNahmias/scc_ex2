@@ -5,7 +5,7 @@ OBJECTS_LIB=my_mat.o
 FLAGS= -Wall -g
 
 
-all:   connections 
+all: libmy_mat.a  connections 
 connections :  $(OBJECTS_MAIN)  libmy_mat.a
 	$(CC) $(FLAGS) -o connections $(OBJECTS_MAIN) libmy_mat.a  
 
