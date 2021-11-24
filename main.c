@@ -27,7 +27,7 @@ floydWarshall();
 break; //return (int)  value from  route(data) in location in [i][j]   
 //default : printf("Error!\n"); break;        
         }
-    }return 1;
+    }return 0;
 }
 
 
