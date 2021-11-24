@@ -25,9 +25,9 @@ break; //cheack if exists route(data) in location in [i][j]  and return true or 
 case 'C' :
 floydWarshall();
 break; //return (int)  value from  route(data) in location in [i][j]   
-default : printf("Error!\n"); break;        
+//default : printf("Error!\n"); break;        
         }
-    }return 0;
+    }return 1;
 }
 
 
