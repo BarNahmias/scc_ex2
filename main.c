@@ -8,6 +8,7 @@
 int main(){
 
 
+
 char dig;
 
 while( dig!='D'){
@@ -25,7 +26,7 @@ case 'C' :
 floydWarshall();
 break; //return (int)  value from  route(data) in location in [i][j]   
         }
-    }
+    }return 0;
 }
 
 
