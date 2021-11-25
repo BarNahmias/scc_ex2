@@ -7,7 +7,7 @@
 
 
 
-
+//find the min value 
 int min(int a,int b) {
 	if(a<b) {
         return a;
@@ -20,6 +20,7 @@ int min(int a,int b) {
 
 
 //create new matrix from inpot 
+
 void newMatrix(){
 for(int i=0;i<N;i++) {
     for(int j=0;j<N;j++){
@@ -28,15 +29,17 @@ for(int i=0;i<N;i++) {
    }
 }
 
-int MatrixInf(int matrix[N][N]){
-    for(int i=0; i<N; i++) {
-        for(int j=0; j<N; j++) {
-            if((i != j) && (matrix[i][j] == 0)) {
-                matrix[i][j] = INF;
+
+//change the value 0 to INF(9999)
+
+void ZeroToInf(int matrix[N][N]){
+  for(int i=0; i<N; i++) {
+      for(int j=0; j<N; j++) {
+          if((i != j) && (matrix[i][j] == 0)) {
+              matrix[i][j] = INF; }
+               }
             }
-        }
-    }
-  }
+          }
 
 
 
@@ -61,7 +64,7 @@ int Route(int mat [N][N]){
 void isExists(){
   int newMatrix[N][N], i, j, k;
   int route;
-  MatrixInf(matrix);
+  ZeroToInf(matrix);
   for (i = 0; i < N; i++)
     for (j = 0; j < N; j++)
       newMatrix[i][j] = matrix[i][j];
@@ -85,17 +88,17 @@ void isExists(){
 
 
 
-// Implementing floyd warshall algorithm
+// create a new matix --floyd warshall algorithm
 void floydWarshall(){
   int newMatrix[N][N], i, j, k;
   int route;
-  MatrixInf(matrix);
+  ZeroToInf(matrix);
 
-  for (i = 0; i < N; i++)
-    for (j = 0; j < N; j++)
-      newMatrix[i][j] = matrix[i][j];
+  for (i = 0; i < N; i++){
+    for (j = 0; j < N; j++){
+      newMatrix[i][j] = matrix[i][j];}
+  }
 
-  // Adding vertices individually
   for (k = 0; k < N; k++){
     for (i = 0; i < N; i++){
       for (j = 0; j < N; j++){
