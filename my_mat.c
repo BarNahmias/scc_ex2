@@ -2,7 +2,8 @@
 #include "my_mat.h"
 #define N 10
 
-int  matrix [N][N];
+ int  matrix [N][N];//= {{0 ,3 ,1 ,0 ,0 ,2 ,0 ,0 ,0 ,0},{3 ,0 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,0},{1 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0},{0 ,0 ,0 ,0 ,0 ,0 ,0 ,5 ,0 ,0},{0 ,0 ,0 ,0 ,0 ,0 ,0 ,4 ,1 ,1}
+// ,{2 ,0 ,0 ,0 ,0 ,0 ,2 ,0 ,0 ,0},{0 ,0 ,0 ,0 ,0 ,2 ,0 ,0 ,0 ,0},{0 ,0 ,0 ,5 ,4 ,0 ,0 ,0 ,0 ,2},{0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,0},{0 ,0 ,0 ,0 ,1 ,0 ,0 ,2 ,0 ,0}};
 
 
 
@@ -16,14 +17,14 @@ for(int i=0;i<N;i++) {
 }
 
 //return (int)  value from  route(data) in location in [i][j]   
-int Route(){
+int Route(int mat [N][N]){
     int i;
     int j;
     int ans;
     scanf("%d",&i);
     scanf("%d",&j);
-    if(matrix[i][j]!=0){
-     ans=matrix[i][j] -1;
+    if(mat[i][j]!=0){
+     ans=mat[i][j] ;
      return ans;
     }
     return -1;
