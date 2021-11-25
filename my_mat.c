@@ -1,10 +1,22 @@
 #include <stdio.h>
 #include "my_mat.h"
 #define N 10
+#define INF 9999
+ int  matrix [N][N];
 
- int  matrix [N][N];//= {{0 ,3 ,1 ,0 ,0 ,2 ,0 ,0 ,0 ,0},{3 ,0 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,0},{1 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0},{0 ,0 ,0 ,0 ,0 ,0 ,0 ,5 ,0 ,0},{0 ,0 ,0 ,0 ,0 ,0 ,0 ,4 ,1 ,1}
-// ,{2 ,0 ,0 ,0 ,0 ,0 ,2 ,0 ,0 ,0},{0 ,0 ,0 ,0 ,0 ,2 ,0 ,0 ,0 ,0},{0 ,0 ,0 ,5 ,4 ,0 ,0 ,0 ,0 ,2},{0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,0},{0 ,0 ,0 ,0 ,1 ,0 ,0 ,2 ,0 ,0}};
 
+
+
+
+int min(int a,int b) {
+	if(a<b) {
+        return a;
+    }
+	else {
+        return b;
+    }
+	  
+}
 
 
 //create new matrix from inpot 
@@ -16,6 +28,18 @@ for(int i=0;i<N;i++) {
    }
 }
 
+int MatrixInf(int matrix[N][N]){
+    for(int i=0; i<N; i++) {
+        for(int j=0; j<N; j++) {
+            if((i != j) && (matrix[i][j] == 0)) {
+                matrix[i][j] = INF;
+            }
+        }
+    }
+  }
+
+
+
 //return (int)  value from  route(data) in location in [i][j]   
 int Route(int mat [N][N]){
     int i;
@@ -23,7 +47,7 @@ int Route(int mat [N][N]){
     int ans;
     scanf("%d",&i);
     scanf("%d",&j);
-    if(mat[i][j]!=0){
+    if((mat[i][j]!=0)&&(mat[i][j]!=INF)){
      ans=mat[i][j] ;
      return ans;
     }
@@ -37,6 +61,7 @@ int Route(int mat [N][N]){
 void isExists(){
   int newMatrix[N][N], i, j, k;
   int route;
+  MatrixInf(matrix);
   for (i = 0; i < N; i++)
     for (j = 0; j < N; j++)
       newMatrix[i][j] = matrix[i][j];
@@ -45,11 +70,11 @@ void isExists(){
   for (k = 0; k < N; k++){
     for (i = 0; i < N; i++){
       for (j = 0; j < N; j++){
-        if (newMatrix[i][k] + newMatrix[k][j] < newMatrix[i][j])
-          newMatrix[i][j] = newMatrix[i][k] + newMatrix[k][j];
+         if((newMatrix[i][j] != 0) && (newMatrix[i][k] != 0) && (newMatrix[k][j]) != 0) {
+             newMatrix[i][j]=min(newMatrix[i][j],newMatrix[i][k]+newMatrix[k][j]);
       }
     }
-  }route = Route(newMatrix);
+  }}route = Route(newMatrix);
   if(route!= -1 ){
     printf("True\n");}
     else {printf("False\n");} 
@@ -64,6 +89,8 @@ void isExists(){
 void floydWarshall(){
   int newMatrix[N][N], i, j, k;
   int route;
+  MatrixInf(matrix);
+
   for (i = 0; i < N; i++)
     for (j = 0; j < N; j++)
       newMatrix[i][j] = matrix[i][j];
@@ -72,10 +99,9 @@ void floydWarshall(){
   for (k = 0; k < N; k++){
     for (i = 0; i < N; i++){
       for (j = 0; j < N; j++){
-        if (newMatrix[i][k] + newMatrix[k][j] < newMatrix[i][j])
-          newMatrix[i][j] = newMatrix[i][k] + newMatrix[k][j];
-      }
-    }
-  }route = Route(newMatrix);
+         if((newMatrix[i][j] != 0) && (newMatrix[i][k] != 0) && (newMatrix[k][j]) != 0) {
+             newMatrix[i][j]=min(newMatrix[i][j],newMatrix[i][k]+newMatrix[k][j]); }
+              }
+  }}route = Route(newMatrix);
    printf("%d\n" ,route);
 }
